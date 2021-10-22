@@ -3,10 +3,10 @@ public class Productos {
 
 	private String nombreProducto;
 	private double precio;
-	private int ID;
+	private String ID;
 	
 	
-	public Productos(String nombreProducto, double precio, int ID) {
+	public Productos(String nombreProducto, double precio, String ID) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
@@ -34,12 +34,12 @@ public class Productos {
 	}
 
 
-	public Integer getID() {
+	public String getID() {
 		return ID;
 	}
 
 
-	public void setID(Integer iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 

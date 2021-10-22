@@ -1,10 +1,10 @@
 
-public class santanderUsers {
+public class SantanderUsers {
 	private String nombre;
 	private String numCuenta;
 	
 	
-	public santanderUsers(String nombre, String numCuenta) {
+	public SantanderUsers(String nombre, String numCuenta) {
 		super();
 		this.nombre = nombre;
 		this.numCuenta = numCuenta;
