@@ -1,4 +1,7 @@
 import java.lang.invoke.SwitchPoint;
+import java.io.File;  // Import the File class
+import java.io.IOException;  // Import the IOException class to handle errors
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +15,7 @@ public class main {
 	public static void main(String[] args) {
 		
 
-		
+		//inicio bucle
 		while(true) {
 		
 		String[] buttons = { "DEPOSITOS", "PAGO DE SERVICIOS", "VENTA", "SALIR" };
@@ -25,11 +28,14 @@ public class main {
 		case 0:
 			
 			System.out.println("Seleccionaste DEPOSITOS");
-			
+			main.systemDepositos();
 			break;
 		case 1:
 			
 			System.out.println("Seleccionaste PAGO DE SERVICIOS");
+			//debug 
+			
+			System.out.println("ENTRA EL TEST");
 			
 			break;
 		case 2:
@@ -145,4 +151,128 @@ public class main {
 	        }
 		}
     }
+    
+    public static void systemDepositos() {
+    
+    	String[] depBan = {"SANTANDER", "BBVA", "SALIO"};
+
+	    int banDep = JOptionPane.showOptionDialog(null, "SELECCIONA UN BANCO", "OXXO - DEPOSITOS",
+	        JOptionPane.INFORMATION_MESSAGE, 0, null, depBan, depBan[2]);
+	    
+	    if (banDep == 1) {
+	    	System.out.println("BBVA");
+	    } else if (banDep == 0) {
+	    	System.out.println("SANTANDER");
+	    	main.systemaSantander();
+	    } else {
+	    	System.out.println("SALIO");
+	    }
+    	
+    }
+    
+    public static void systemaSantander() {
+    	
+        Object[] options1 = { "CONTINUAR", "SALIR" };
+
+		JPanel panel = new JPanel();
+		panel.add(new JLabel("INTRODUCE EL NUMERO DE CUENTA"));
+		JTextField textField = new JTextField(10);
+		
+		panel.add(textField);
+		
+		int result = JOptionPane.showOptionDialog(null, panel, "DEPOSITO", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null);
+		
+		if(result == 1) {
+			return;
+		}
+		
+		if(result == 0) {
+			
+		
+		
+        Object[] options2 = { "CONTINUAR", "SALIR" };
+
+		JPanel panel2 = new JPanel();
+		panel2.add(new JLabel("INTRODUCE LA CANTIDAD"));
+		JTextField textField2 = new JTextField(10);
+		
+		
+		
+		panel2.add(textField2);
+		
+		int result2 = JOptionPane.showOptionDialog(null, panel2, "DEPOSITO", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options2, null);
+		
+		if(result2 == 1) {
+			return;
+		}
+		
+		if(result2 == 0) {
+			Integer montoDeposito = Integer.parseInt(textField2.getText());
+			//String montoDeposito = textField2.getText();
+			
+	        final List<santanderUsers> cuenta = cuentasSantander();
+	        
+	        for(int i = 0; i < cuenta.size(); i++) {
+	        	
+	        	String nCuenta = cuenta.get(i).getNumCuenta();
+	        	
+	        	if(nCuenta.equals(textField.getText())) {
+	        		
+	    			String[] botVen1 = {"SALIR", "CONFIRMAR"};
+
+	    		    int botV1 = JOptionPane.showOptionDialog(null, "DEPOSITO A: " + cuenta.get(i).getNombre() + "\nCON VALOR DE: $" + montoDeposito + " MXN.", "OXXO",
+	    		        JOptionPane.INFORMATION_MESSAGE, 0, null, botVen1, botVen1[1]);
+	    		    	    		    
+	    		    if(botV1 == 1) {
+	    		    	System.out.println("Seleccionaste AGREGAR AL CARRITO");
+	    		    } else {
+	    		    	System.out.println("SALIÓ");
+	    		    }
+
+
+	    	System.out.println(result);
+	    	System.out.println(textField);
+	        	}
+	        }
+			
+		}
+		}
+		
+		
+		//Continuar = 0 , Salir = 1
+		
+		
+		
+
+    }
+    
+    public static List<santanderUsers> cuentasSantander() {
+
+        final List<santanderUsers> cuenta = new ArrayList<>();
+
+        final santanderUsers cuenta1 = new santanderUsers("Abisai Vazquez", "002233445566");
+        final santanderUsers cuenta2 = new santanderUsers("Erik Archundia", "001122334455");
+
+        cuenta.add(cuenta1);
+        cuenta.add(cuenta2);
+
+        return cuenta;
+    }
+    
+    /*public static void test() {
+    	try {
+    		String fileName = "filename.txt" + "1";
+    	      File myObj = new File(fileName);
+    	      if (myObj.createNewFile()) {
+    	        System.out.println("File created: " + myObj.getName());
+    	      } else {
+    	        System.out.println("File already exists.");
+    	      }
+    	    } catch (IOException e) {
+    	      System.out.println("An error occurred.");
+    	      e.printStackTrace();
+    	    }
+    }*/
+    
+    
 }
