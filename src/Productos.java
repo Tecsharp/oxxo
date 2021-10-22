@@ -11,6 +11,7 @@ public class Productos {
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
 		this.ID = ID;
+		
 	}
 
 

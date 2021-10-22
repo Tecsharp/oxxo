@@ -43,6 +43,7 @@ public class main {
 			System.out.println("Seleccionaste SALIR");
 			return;
 		default:
+			
 			System.out.println("ENTRA A DEFAULT");
 			break;
 		}
