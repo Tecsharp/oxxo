@@ -225,21 +225,7 @@ public class main {
 
         return cuenta;
     }
-    
-    /*public static void test() {
-    	try {
-    		String fileName = "filename.txt" + "1";
-    	      File myObj = new File(fileName);
-    	      if (myObj.createNewFile()) {
-    	        System.out.println("File created: " + myObj.getName());
-    	      } else {
-    	        System.out.println("File already exists.");
-    	      }
-    	    } catch (IOException e) {
-    	      System.out.println("An error occurred.");
-    	      e.printStackTrace();
-    	    }
-    }*/
+
     
     public static void pagoServicios() {
     	
